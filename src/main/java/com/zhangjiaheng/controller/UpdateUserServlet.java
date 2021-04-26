@@ -1,4 +1,4 @@
-package com.zhangjiaheng.controlle;
+package com.zhangjiaheng.controller;
 
 import com.zhangjiaheng.dao.UserDao;
 import com.zhangjiaheng.model.User;
@@ -9,6 +9,7 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.Date;
 
 @WebServlet(name = "UpdateUserServlet", value = "/updateUser")
 public class UpdateUserServlet extends HttpServlet {
@@ -32,7 +33,7 @@ public class UpdateUserServlet extends HttpServlet {
         String password=request.getParameter("password");
         String Email=request.getParameter("email");
         String Gender=request.getParameter("gender");
-        String Date=request.getParameter("birthDate");
+
 
         User user = new User();
         user.setId(Integer.parseInt(id));
@@ -40,7 +41,7 @@ public class UpdateUserServlet extends HttpServlet {
         user.setPassword(password);
         user.setEmail(Email);
         user.setGender(Gender);
-        user.setBirthdate(Date);
+
 
         UserDao userDao = new UserDao();
 
