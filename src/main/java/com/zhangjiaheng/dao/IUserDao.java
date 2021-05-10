@@ -21,4 +21,5 @@ public interface IUserDao {
     public List<User> findByBirthdate(Connection con, Date birthDate) throws SQLException;
     public List<User> findAllUser(Connection con) throws SQLException;
 
+
 }

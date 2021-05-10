@@ -3,31 +3,50 @@ package com.zhangjiaheng.model;
 import java.util.Date;
 
 public class User {
-    private int id;
+    private Integer id;
     private String username;
     private String password;
     private String email;
     private String gender;
-    private java.util.Date birthdate;
+    private Date birthday;
 
-    public User(){
-
+    public User() {
     }
 
-    public User(int id, String username, String password, String email, String gender, Date birthdate) {
+    public User(Integer id, String username, String password, String email, String gender, Date birthday) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.email = email;
         this.gender = gender;
-        this.birthdate = birthdate;
+        this.birthday = birthday;
     }
 
-    public int getId() {
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", gender='" + gender + '\'' +
+                ", birthday=" + birthday +
+                '}';
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -55,33 +74,11 @@ public class User {
         this.email = email;
     }
 
-    public String getGender() {
-        return gender;
+    public Date getBirthday() {
+        return birthday;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
     }
-
-    public Date getBirthdate() {
-        return birthdate;
-    }
-
-    public void setBirthdate(Date birthdate) {
-        this.birthdate = birthdate;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
-                ", gender='" + gender + '\'' +
-                ", birthdate=" + birthdate +
-                '}';
-    }
-
 }
-
