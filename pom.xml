@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
-    <artifactId>zhangjiaheng2019211001000819</artifactId>
+    <artifactId>demo1</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>2019211001000819zhangjiaheng</name>
+    <name>demo1</name>
     <packaging>war</packaging>
 
     <properties>
@@ -34,11 +34,6 @@
             <artifactId>junit-jupiter-engine</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.microsoft.sqlserver</groupId>
-            <artifactId>mssql-jdbc</artifactId>
-            <version>8.4.1.jre8</version>
         </dependency>
     </dependencies>
 
