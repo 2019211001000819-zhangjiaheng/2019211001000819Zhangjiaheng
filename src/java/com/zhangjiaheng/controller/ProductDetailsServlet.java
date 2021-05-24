@@ -12,8 +12,8 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
-@WebServlet(name = "ProductListServlet", value = "/admin/ProductList")
-public class ProductListServlet extends HttpServlet {
+@WebServlet(name = "ProductDetailsServlet", value = "/ProductDetails")
+public class ProductDetailsServlet extends HttpServlet {
     Connection con=null;
     @Override
     public void init() throws ServletException {
@@ -21,17 +21,26 @@ public class ProductListServlet extends HttpServlet {
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id=request.getParameter("id")!=null?Integer.parseInt(request.getParameter("id")):0;
+        ProductDao dao=new ProductDao();
+        if(id==0) return;
+        List<Category> categoryList= null;
         try {
-            ProductDao productDao = new ProductDao();
-            List<Product> productList = productDao.findAll(con);
-            request.setAttribute("productList",productList);
-        } catch (SQLException e) {
-            e.printStackTrace();
+            categoryList = Category.findAllCategory(con);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
         }
-        request.getRequestDispatcher("/WEB-INF/views/admin/productList.jsp").forward(request,response);
+        request.setAttribute("categoryList",categoryList);
+
+        Product product=dao.findById(id,con);
+        request.setAttribute("p",product);
+        String path="/WEB-INF/views/productDetails.jsp";
+        request.getRequestDispatcher(path).forward(request,response);
+
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
     }
 }

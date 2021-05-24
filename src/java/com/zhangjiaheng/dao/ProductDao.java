@@ -5,6 +5,7 @@ import com.zhangjiaheng.model.Product;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -72,6 +73,10 @@ public class ProductDao implements  IProductDao{
 
     @Override
     public List<Product> getPicture(Integer productId, Connection con) throws SQLException {
+        return null;
+    }
+
+    public byte[] getPictureById(int productId, Connection con) throws SQLException {
         return null;
     }
 }
